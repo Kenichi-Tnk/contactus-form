@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactUsController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,14 @@ use App\Http\Controllers\ContactUsController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/', [ContactUsController::class, 'index']);
-Route::POST('/contacts/confirm', [ContactUsController::class, 'confirm']);
-Route::POST('/contacts', [ContactUsController::class, 'store']);
+Route::POST('/confirm', [ContactUsController::class, 'confirm']);
+Route::POST('/thanks', [ContactUsController::class, 'store']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [ContactUsController::class, 'admin']);
+    Route::get('/search', [ContactUsController::class, 'search']);
+    Route::post('/delete', [ContactUsController::class, 'destroy']);
+    Route::post('/export', [ContactUsController::class, 'export']);
+});
