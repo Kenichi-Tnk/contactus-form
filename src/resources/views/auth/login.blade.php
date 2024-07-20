@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
 @endsection
 
-@section('kink')
+@section('link')
 <a class="header__link" href="/register">register</a>
 @endsection
 
