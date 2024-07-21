@@ -7,16 +7,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ContactFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+    protected $model = Contact::class;
+    
     public function definition()
     {
         return [
             'category_id' => $this->faker->numberBetween(1, 5),
-            'first_name' => $thus->faker->lastName(),
+            'first_name' => $this->faker->lastName(),
             'last_name' => $this->faker->firstName(),
             'gender' => $this->faker->randomElement([1, 2, 3]),
             'email' => $this->faker->safeEmail(),

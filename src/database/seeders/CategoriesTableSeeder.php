@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $contacts = [
+        $contents = [
             "商品のお届けについて",
             "商品の交換について",
             "商品トラブル",

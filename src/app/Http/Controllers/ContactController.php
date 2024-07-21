@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class ContactUsController extends Controller
+class ContactController extends Controller
 {
     public function index()
     {
@@ -58,7 +58,7 @@ class ContactUsController extends Controller
 
     public function search(Request $request)
     {
-        if ($request->has('request')) {
+        if ($request->has('reset')) {
             return redirect('/admin')->withInput();
         }
         $query = Contact::query();
